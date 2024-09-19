@@ -1,12 +1,4 @@
 <link rel= "stylesheet" type="text/css" href="style.css"
 
-<span style="color: red;"> **This is the subtitle of the portfolio** </span>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-Test
+<h1 class="fancy-text">This is the portfolio.</h1>
+<p> This paragraph is the custom CSS.</p>
