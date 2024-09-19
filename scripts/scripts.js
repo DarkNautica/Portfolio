@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function typeWriter() {
         if (index < aboutText.length) {
-            aboutElement.innerHTML += aboutText.charAt(index);
+            aboutElement.innerHTML = aboutText.substring(0, index + 1);
             index++;
             setTimeout(typeWriter, 50);
         }
@@ -13,4 +13,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     typeWriter();
 });
-
