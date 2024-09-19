@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const aboutText = "I'm learning 404040 <span class='code-html'>HTML</span>, <span class='code-css'>CSS</span>, <span class='code-js'>JavaScript</span>, and <span class='code-csharp'>C#</span>.";
+    const aboutText = "I'm learning <span class='code-html'>HTML</span>, <span class='code-css'>CSS</span>, <span class='code-js'>JavaScript</span>, and <span class='code-csharp'>C#</span>.";
     const aboutElement = document.getElementById('about-text');
     let index = 0;
     let isTag = false;
