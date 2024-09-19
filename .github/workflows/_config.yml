@@ -1,1 +1,6 @@
+title: My Jekyll Site
+description: A simple GitHub Pages site
+theme: minima
+plugins:
+  - jekyll-feed
 
