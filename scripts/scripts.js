@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Array of proficiency levels
     const proficiencyLevels = [
-        { width: '60%', color: '#ffcc00' },  // C# - Intermediate
+        { width: '60%', color: '#178600' },  // C# - Intermediate (Green)
         { width: '30%', color: '#e34c26' },  // HTML - Beginner
         { width: '30%', color: '#563d7c' },  // CSS - Beginner
         { width: '30%', color: '#f1e05a' }   // JavaScript - Beginner
