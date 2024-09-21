@@ -8,6 +8,7 @@ body {
     color: #d4d4d4;
 }
 
+/* Header and Navigation */
 header {
     background-color: #007acc;
     color: white;
@@ -15,16 +16,12 @@ header {
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-}
-
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
     margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -41,6 +38,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Sections */
 section {
     padding: 2rem;
     max-width: 800px;
@@ -56,6 +54,7 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
+/* Projects */
 .project {
     border: 1px solid #3c3c3c;
     padding: 1rem;
@@ -65,7 +64,7 @@ h2 {
     border-radius: 4px;
 }
 
-/* Proficiency Bar Styles */
+/* Coding Proficiency Section */
 .coding-languages {
     display: flex;
     flex-direction: column;
@@ -88,58 +87,54 @@ h2 {
 .progress-bar {
     height: 100%;
     border-radius: 10px;
-    transition: width 0.5s ease;
+    width: 0;  /* Initially 0 width */
+    animation: fillBar 2s ease forwards;
+    animation-delay: var(--delay);
+}
+
+/* Staggered Animations */
+.language:nth-child(1) .progress-bar {
+    --delay: 0s;
+}
+
+.language:nth-child(2) .progress-bar {
+    --delay: 0.5s;
+}
+
+.language:nth-child(3) .progress-bar {
+    --delay: 1s;
+}
+
+.language:nth-child(4) .progress-bar {
+    --delay: 1.5s;
 }
 
 /* Different levels of proficiency */
 .beginner {
-    width: 30%;
     background-color: #ff6347;
+    width: 30%;  /* The final width for Beginner */
 }
 
 .intermediate {
-    width: 60%;
     background-color: #ffcc00;
+    width: 60%;  /* The final width for Intermediate */
 }
 
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-top: 1rem;
-}
-
-form input, form textarea {
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #3c3c3c;
-    border-radius: 4px;
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-}
-
-form button {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #005f99;
-}
-
-/* Coding Language Colors */
+/* Coding Language Colors from About Section */
 .code-html { color: #e34c26; }
 .code-css { color: #563d7c; }
 .code-js { color: #f1e05a; }
 .code-csharp { color: #178600; }
+
+/* Keyframes for Filling Progress Bars */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--final-width);
+    }
+}
 
 /* Typewriter Effect */
 .typewriter {
