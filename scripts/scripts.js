@@ -41,6 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dark Mode Toggle
     const toggleSwitch = document.getElementById('dark-mode-toggle');
+
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+
     function switchTheme(e) {
         if (e.target.checked) {
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -50,15 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('theme', 'light');
         }
     }
-    toggleSwitch.addEventListener('change', switchTheme, false);
 
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
-    }
+    toggleSwitch.addEventListener('change', switchTheme, false);
 
     // GitHub API Integration
     fetch('https://api.github.com/users/YOUR_USERNAME/repos')
@@ -83,25 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Image Carousel
-    let currentIndex = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    document.querySelector('.next').addEventListener('click', function() {
-        items[currentIndex].style.display = 'none';
-        currentIndex = (currentIndex + 1) % items.length;
-        items[currentIndex].style.display = 'block';
-    });
-
-    document.querySelector('.prev').addEventListener('click', function() {
-        items[currentIndex].style.display = 'none';
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        items[currentIndex].style.display = 'block';
-    });
-
     // Floating Particles Effect
-    const numParticles = 50; // Number of particles
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particles';
+    const numParticles = 50;
+    const particleContainer = document.querySelector('.particles');
 
     for (let i = 0; i < numParticles; i++) {
         const particle = document.createElement('div');
@@ -112,6 +96,4 @@ document.addEventListener('DOMContentLoaded', function() {
         particle.style.animationDuration = `${5 + Math.random() * 10}s`;
         particleContainer.appendChild(particle);
     }
-
-    document.body.appendChild(particleContainer);
 });
