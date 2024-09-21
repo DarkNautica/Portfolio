@@ -18,4 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     typeWriter();
+
+    // Animate the progress bars when the skills section comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.querySelectorAll('.progress-bar').forEach((bar) => {
+                    bar.style.width = bar.getAttribute('data-width');
+                });
+            }
+        });
+    });
+
+    observer.observe(document.querySelector('#skills'));
 });
