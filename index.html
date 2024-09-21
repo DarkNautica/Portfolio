@@ -1,158 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interactive Portfolio</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
 <body>
+    <!-- Particle Background -->
+    <div class="particles"></div>
 
-    <!-- Header with Dark Mode Toggle -->
-    <header>
-        <h1>My Interactive Portfolio</h1>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch">
-                <input type="checkbox" id="dark-mode-toggle">
-                <span class="slider round"></span>
-            </label>
-            <p>Dark Mode</p>
-        </div>
-    </header>
+    <!-- Main Content Container -->
+    <div class="main-container">
+        <header>
+            <h1>My Interactive Portfolio</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <p>Dark Mode</p>
+            </div>
+        </header>
 
-    <!-- Parallax Section with Background Image -->
-    <section class="parallax-bg">
-        <div class="container">
-            <h2>Welcome to My Portfolio</h2>
-            <p>Scroll to explore the cool interactive features I've built!</p>
-        </div>
-    </section>
+        <!-- Parallax Section -->
+        <section class="parallax-bg">
+            <div class="container">
+                <h2>Welcome to My Portfolio</h2>
+                <p>Scroll to explore the cool interactive features I've built!</p>
+            </div>
+        </section>
 
-    <!-- About Section with Typewriter Effect -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p class="typewriter" id="about-text"></p>
-    </section>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="typewriter" id="about-text"></p>
+        </section>
 
-    <!-- Skills Section with Interactive Progress Bars -->
-    <section id="skills">
-        <h2>Coding Proficiency</h2>
-        <div class="coding-languages">
-            <div class="language">
-                <h3><span class="code-csharp">C#</span></h3>
-                <div class="proficiency">
-                    <div class="progress-bar intermediate"></div>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Coding Proficiency</h2>
+            <div class="coding-languages">
+                <div class="language">
+                    <h3><span class="code-csharp">C#</span></h3>
+                    <div class="proficiency">
+                        <div class="progress-bar intermediate"></div>
+                    </div>
+                    <p>Proficiency: Intermediate</p>
                 </div>
-                <p>Proficiency: Intermediate</p>
-            </div>
-
-            <div class="language">
-                <h3><span class="code-html">HTML</h3>
-                <div class="proficiency">
-                    <div class="progress-bar beginner"></div>
+                <div class="language">
+                    <h3><span class="code-html">HTML</span></h3>
+                    <div class="proficiency">
+                        <div class="progress-bar beginner"></div>
+                    </div>
+                    <p>Proficiency: Beginner</p>
                 </div>
-                <p>Proficiency: Beginner</p>
-            </div>
-
-            <div class="language">
-                <h3><span class="code-css">CSS</span></h3>
-                <div class="proficiency">
-                    <div class="progress-bar beginner"></div>
+                <div class="language">
+                    <h3><span class="code-css">CSS</span></h3>
+                    <div class="proficiency">
+                        <div class="progress-bar beginner"></div>
+                    </div>
+                    <p>Proficiency: Beginner</p>
                 </div>
-                <p>Proficiency: Beginner</p>
-            </div>
-
-            <div class="language">
-                <h3><span class="code-js">JavaScript</span></h3>
-                <div class="proficiency">
-                    <div class="progress-bar beginner"></div>
+                <div class="language">
+                    <h3><span class="code-js">JavaScript</span></h3>
+                    <div class="proficiency">
+                        <div class="progress-bar beginner"></div>
+                    </div>
+                    <p>Proficiency: Beginner</p>
                 </div>
-                <p>Proficiency: Beginner</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- GitHub Projects Section -->
-    <section id="projects">
-        <h2>My Projects (via GitHub API)</h2>
-        <div id="github-projects"></div>
-    </section>
+        <!-- GitHub Projects Section -->
+        <section id="projects">
+            <h2>My Projects (via GitHub API)</h2>
+            <div id="github-projects"></div>
+        </section>
 
-    <!-- Contact Form with Validation -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <!-- Contact Form Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
 
-    <!-- Image Carousel (Slider) with Placeholder Images -->
-    <section id="carousel">
-        <h2>My Portfolio Showcase</h2>
-        <div class="carousel">
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/800x400?text=Project+1" alt="Project 1">
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/800x400?text=Project+2" alt="Project 2">
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/800x400?text=Project+3" alt="Project 3">
-            </div>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-        </div>
-    </section>
-
-    <!-- Data Visualization Section -->
-    <section id="data-visualization">
-        <h2>Data Visualization</h2>
-        <!-- Canvas for Chart -->
-        <canvas id="myChart" width="400" height="200"></canvas>
-    </section>
-
-    <!-- Scripts -->
+    <!-- JS Scripts -->
     <script src="scripts/scripts.js"></script>
-
-    <!-- Chart.js Script to Create a Bar Chart -->
-    <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['HTML', 'CSS', 'JavaScript', 'C#', 'Python', 'SQL'],
-                datasets: [{
-                    label: 'Proficiency Level',
-                    data: [30, 25, 40, 60, 20, 35],
-                    backgroundColor: [
-                        '#e34c26', // HTML (red)
-                        '#563d7c', // CSS (purple)
-                        '#f1e05a', // JavaScript (yellow)
-                        '#178600', // C# (green)
-                        '#3572A5', // Python (blue)
-                        '#b5b5b5'  // SQL (gray)
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-    </script>
 </body>
-</html>
+
