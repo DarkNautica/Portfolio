@@ -87,37 +87,9 @@ h2 {
 .progress-bar {
     height: 100%;
     border-radius: 10px;
-    width: 0;  /* Initially 0 width */
-    animation: fillBar 2s ease forwards;
-    animation-delay: var(--delay);
-}
-
-/* Staggered Animations */
-.language:nth-child(1) .progress-bar {
-    --delay: 0s;
-}
-
-.language:nth-child(2) .progress-bar {
-    --delay: 0.5s;
-}
-
-.language:nth-child(3) .progress-bar {
-    --delay: 1s;
-}
-
-.language:nth-child(4) .progress-bar {
-    --delay: 1.5s;
-}
-
-/* Different levels of proficiency */
-.beginner {
-    background-color: #ff6347;
-    width: 30%;  /* The final width for Beginner */
-}
-
-.intermediate {
-    background-color: #ffcc00;
-    width: 60%;  /* The final width for Intermediate */
+    width: 0; /* Start empty */
+    background-color: var(--bar-color);
+    transition: width 2s ease; /* Smooth fill-up animation */
 }
 
 /* Coding Language Colors from About Section */
@@ -125,16 +97,6 @@ h2 {
 .code-css { color: #563d7c; }
 .code-js { color: #f1e05a; }
 .code-csharp { color: #178600; }
-
-/* Keyframes for Filling Progress Bars */
-@keyframes fillBar {
-    from {
-        width: 0;
-    }
-    to {
-        width: var(--final-width);
-    }
-}
 
 /* Typewriter Effect */
 .typewriter {
