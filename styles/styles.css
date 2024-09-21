@@ -87,7 +87,7 @@ h2 {
 .progress-bar {
     height: 100%;
     border-radius: 10px;
-    width: 0; /* Start empty */
+    width: 0; /* Starts empty */
     background-color: var(--bar-color);
     transition: width 2s ease; /* Smooth fill-up animation */
 }
