@@ -4,15 +4,26 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #1e1e1e, #000000); /* Gradient background */
+    background: var(--bg-color); /* Uses CSS variables for light/dark mode */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #d4d4d4;
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+/* Light and Dark Mode Variables */
+:root[data-theme='light'] {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+}
+
+:root[data-theme='dark'] {
+    --bg-color: #1e1e1e;
+    --text-color: #d4d4d4;
 }
 
 /* Center container for all content */
@@ -46,7 +57,6 @@ body {
     opacity: 0.8;
 }
 
-/* Floating Particle Animation */
 @keyframes float {
     0% {
         transform: translateY(0) translateX(0);
@@ -91,16 +101,6 @@ h1, h2, p {
     z-index: 1;
 }
 
-h2 {
-    font-size: 2rem;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-}
-
-p {
-    line-height: 1.6;
-}
-
 /* Proficiency Section */
 .proficiency {
     background-color: #e0e0e0;
@@ -117,6 +117,51 @@ p {
     background-color: var(--bar-color);
     transition: width 2s ease;
     border-radius: 12px;
+}
+
+/* Contact Form */
+form {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    padding: 0.8rem 1.5rem;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }
 
 /* Responsive Layout */
