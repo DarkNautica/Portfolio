@@ -5,115 +5,127 @@ body {
     padding: 0;
     box-sizing: border-box;
 
-    /* Add the background image */
+    /* Background Image */
     background-image: url('../assets/images/BG.jpg');
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* No repeat of the image */
-    background-attachment: fixed; /* Keeps the image fixed when scrolling */
-    color: #d4d4d4; /* Text color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #d4d4d4;
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-color: #1e1e1e;
+    --text-color: #d4d4d4;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header */
 header {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent header to see background */
-    color: white;
-    padding: 1rem 0;
     text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Sections */
-section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Adds transparency to sections for readability */
-    color: #fff; /* White text for readability */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
-}
-
-/* Projects */
-.project {
-    border: 1px solid #3c3c3c;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
-    margin: 1rem 0;
-    background-color: rgba(45, 45, 45, 0.8); /* Dark background with transparency */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
 }
 
-/* Coding Proficiency Section */
-.coding-languages {
+.theme-switch-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.language {
-    margin: 10px 0;
+/* Parallax Section */
+.parallax-bg {
+    background-image: url('../assets/images/parallax.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
 }
 
+.container {
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* Interactive Skills Section */
 .proficiency {
     background-color: #e0e0e0;
-    border-radius: 10px;
-    width: 100%;
     height: 20px;
-    position: relative;
     margin-top: 5px;
 }
 
 .progress-bar {
     height: 100%;
-    border-radius: 10px;
-    width: 0; /* Starts empty */
+    width: 0;
     background-color: var(--bar-color);
-    transition: width 2s ease; /* Smooth fill-up animation */
+    transition: width 2s ease;
 }
 
-/* Coding Language Colors from About Section */
-.code-html { color: #e34c26; }
-.code-css { color: #563d7c; }
-.code-js { color: #f1e05a; }
-.code-csharp { color: #178600; }
-
-/* Typewriter Effect */
-.typewriter {
-    display: inline-block;
+/* Carousel */
+.carousel {
+    position: relative;
+    max-width: 100%;
     overflow: hidden;
-    white-space: nowrap;
-    border-right: 0.15em solid #d4d4d4;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    margin: 0 auto;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+.carousel img {
+    width: 100%;
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #d4d4d4; }
+.carousel-item {
+    display: none;
+}
+
+.carousel-item:first-child {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
