@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle the filling of progress bars
     const progressBars = document.querySelectorAll('.progress-bar');
 
-    // Set up an array of proficiency levels
+    // Array of proficiency levels
     const proficiencyLevels = [
         { width: '60%', color: '#ffcc00' },  // C# - Intermediate
         { width: '30%', color: '#e34c26' },  // HTML - Beginner
@@ -30,16 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
         { width: '30%', color: '#f1e05a' }   // JavaScript - Beginner
     ];
 
-    // Function to animate each bar one after another
+    // Function to fill the bars with delay for each
     function fillBars() {
         progressBars.forEach((bar, index) => {
             setTimeout(() => {
                 bar.style.width = proficiencyLevels[index].width;
                 bar.style.backgroundColor = proficiencyLevels[index].color;
-            }, index * 500); // Delay each bar by 0.5 seconds
+            }, index * 500); // Stagger the bars filling up by 500ms each
         });
     }
 
-    // Trigger the fill bars when the skills section is loaded
+    // Call fillBars function to start the animation
     fillBars();
 });
