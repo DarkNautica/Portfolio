@@ -97,4 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
         currentIndex = (currentIndex - 1 + items.length) % items.length;
         items[currentIndex].style.display = 'block';
     });
+
+    // Floating Particles Effect
+    const numParticles = 50; // Number of particles
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'particles';
+
+    for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.animationDuration = `${5 + Math.random() * 10}s`;
+        particleContainer.appendChild(particle);
+    }
+
+    document.body.appendChild(particleContainer);
 });
