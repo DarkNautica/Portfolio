@@ -21,7 +21,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none; /* Prevents interaction with the particles */
-    z-index: 0; /* Ensures particles stay behind the content */
+    z-index: 0; /* Ensures particles stay in the background */
 }
 
 .particle {
@@ -48,24 +48,14 @@ body {
     }
 }
 
-.particle:nth-child(odd) {
-    animation-duration: 15s;
-}
-
-.particle:nth-child(even) {
-    animation-duration: 8s;
-}
-
-.particle:nth-child(3n) {
-    animation-duration: 12s;
-    animation-direction: alternate;
-}
-
 /* Center container for text and content */
-.container {
-    z-index: 1;
+.container, section {
+    position: relative; /* Ensure content stays in place */
+    z-index: 1; /* Content is above particles */
     text-align: center;
-    position: relative;
+    max-width: 1200px; /* Keeps content within a reasonable width */
+    margin: 0 auto;
+    padding: 2rem 0;
 }
 
 /* Parallax Section */
@@ -92,7 +82,12 @@ body {
     z-index: 1;
 }
 
-/* Coding Proficiency Styles */
+h1, h2, p {
+    z-index: 2;
+    position: relative;
+}
+
+/* Proficiency Section Styles */
 .proficiency {
     background-color: #e0e0e0;
     border-radius: 12px;
@@ -119,4 +114,18 @@ h2 {
 
 p {
     line-height: 1.6;
+}
+
+/* Fixes for particles with relative positioning of content */
+.particle:nth-child(odd) {
+    animation-duration: 15s;
+}
+
+.particle:nth-child(even) {
+    animation-duration: 8s;
+}
+
+.particle:nth-child(3n) {
+    animation-duration: 12s;
+    animation-direction: alternate;
 }
