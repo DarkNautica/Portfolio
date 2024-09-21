@@ -65,6 +65,44 @@ h2 {
     border-radius: 4px;
 }
 
+/* Proficiency Bar Styles */
+.coding-languages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.language {
+    margin: 10px 0;
+}
+
+.proficiency {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+    position: relative;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Different levels of proficiency */
+.beginner {
+    width: 30%;
+    background-color: #ff6347;
+}
+
+.intermediate {
+    width: 60%;
+    background-color: #ffcc00;
+}
+
+/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -103,7 +141,7 @@ form button:hover {
 .code-js { color: #f1e05a; }
 .code-csharp { color: #178600; }
 
-/* Typewriting Effect */
+/* Typewriter Effect */
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -121,4 +159,3 @@ form button:hover {
     from, to { border-color: transparent; }
     50% { border-color: #d4d4d4; }
 }
-
