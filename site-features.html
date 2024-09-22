@@ -7,21 +7,40 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="site-features.html">Site Features</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="site-features.html">Site Features</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="main-container">
-        <section id="site-features">
-            <h1>Site Features</h1>
-            <p>Here's an overview of the features included in this portfolio, such as dark mode, particle effects, and smooth scrolling.</p>
+    <main class="main-container">
+        <!-- Interactive Code Playground -->
+        <section id="code-playground">
+            <h2>Interactive Code Playground</h2>
+            <div class="playground-container">
+                <div class="editor">
+                    <h3>HTML</h3>
+                    <textarea id="html-code" placeholder="Write HTML here..."></textarea>
+                    <h3>CSS</h3>
+                    <textarea id="css-code" placeholder="Write CSS here..."></textarea>
+                    <h3>JavaScript</h3>
+                    <textarea id="js-code" placeholder="Write JS here..."></textarea>
+                </div>
+                <div class="preview">
+                    <h3>Preview</h3>
+                    <iframe id="preview-window"></iframe>
+                </div>
+            </div>
+            <button onclick="runCode()">Run Code</button>
         </section>
-    </div>
+    </main>
+
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
