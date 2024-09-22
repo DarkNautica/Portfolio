@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if about section exists to apply typewriter effect
+    // Check if the About section exists to apply typewriter effect
     const aboutElement = document.getElementById('about-text');
     if (aboutElement) {
         // Typewriter Effect
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleSwitch.addEventListener('change', switchTheme, false);
     }
 
-    // GitHub API Integration (if on projects page)
+    // GitHub API Integration (if on the projects page)
     const projectSection = document.getElementById('github-projects');
     if (projectSection) {
         fetch('https://api.github.com/users/YOUR_USERNAME/repos')
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Form Validation (if on contact page)
+    // Form Validation (if on the contact page)
     const form = document.getElementById('contact-form');
     if (form) {
         const emailInput = document.getElementById('email');
