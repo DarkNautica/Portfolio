@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     transition: background-color 0.3s ease;
+    cursor: url('assets/images/custom-cursor.png'), auto; /* Custom Cursor */
 }
 
 /* Light and Dark Mode Variables */
