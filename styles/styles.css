@@ -33,6 +33,42 @@ body {
     padding: 2rem;
     z-index: 1;
     background: transparent;
+    margin-top: 60px; /* To account for sticky navbar */
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Make sure it stays on top */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #007AFF; /* Matches the Apple-style toggle blue */
 }
 
 /* Particle Background */
