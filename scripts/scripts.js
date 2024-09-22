@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         typeWriter();
     }
 
-    // Progress Bars
+    // Progress Bars (Sliders)
     const progressBars = document.querySelectorAll('.progress-bar');
     if (progressBars.length > 0) {
         const proficiencyLevels = [
