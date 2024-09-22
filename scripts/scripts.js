@@ -107,4 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
             particleContainer.appendChild(particle);
         }
     }
+
+    // Code Playground Logic
+    function runCode() {
+        const htmlCode = document.getElementById("html-code").value;
+        const cssCode = "<style>" + document.getElementById("css-code").value + "</style>";
+        const jsCode = "<script>" + document.getElementById("js-code").value + "<\/script>";
+        const previewWindow = document.getElementById("preview-window").contentWindow.document;
+
+        previewWindow.open();
+        previewWindow.write(htmlCode + cssCode + jsCode);
+        previewWindow.close();
+    }
+
+    // Make runCode function accessible globally
+    window.runCode = runCode;
 });
