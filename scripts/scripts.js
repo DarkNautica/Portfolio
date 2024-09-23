@@ -143,4 +143,90 @@ document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
         duration: 1000, // Duration of the animation in milliseconds
     });
+
+    // Mini-Game Logic
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const startButton = document.getElementById('startButton');
+    
+    canvas.width = 300;
+    canvas.height = 400;
+
+    let gameInterval;
+    let fallingObjects = [];
+    let player = { x: 130, y: 370, width: 50, height: 10 };
+    let score = 0;
+    let gameOver = false;
+
+    // Start game button
+    startButton.addEventListener('click', startGame);
+
+    function startGame() {
+        fallingObjects = [];
+        score = 0;
+        gameOver = false;
+        gameInterval = setInterval(updateGame, 20);
+        startButton.disabled = true;
+    }
+
+    // Function to create falling objects
+    function createFallingObject() {
+        const size = Math.random() * 20 + 10;
+        const x = Math.random() * (canvas.width - size);
+        const speed = Math.random() * 2 + 1;
+        fallingObjects.push({ x: x, y: 0, size: size, speed: speed });
+    }
+
+    // Function to update the game state
+    function updateGame() {
+        if (Math.random() < 0.05) {
+            createFallingObject();
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw player paddle
+        ctx.fillStyle = '#007BFF';
+        ctx.fillRect(player.x, player.y, player.width, player.height);
+
+        // Draw falling objects
+        for (let i = 0; i < fallingObjects.length; i++) {
+            const obj = fallingObjects[i];
+            ctx.beginPath();
+            ctx.arc(obj.x, obj.y, obj.size / 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            obj.y += obj.speed;
+
+            // Check if the object hits the player
+            if (obj.y + obj.size > player.y && obj.x > player.x && obj.x < player.x + player.width) {
+                score++;
+                fallingObjects.splice(i, 1);
+                i--;
+            } else if (obj.y > canvas.height) {
+                gameOver = true;
+            }
+        }
+
+        // Game over logic
+        if (gameOver) {
+            clearInterval(gameInterval);
+            ctx.font = '20px Courier New';
+            ctx.fillStyle = 'black';
+            ctx.fillText('Game Over', 100, 200);
+            ctx.fillText(`Score: ${score}`, 110, 230);
+            startButton.disabled = false;
+        }
+
+        // Draw score
+        ctx.font = '16px Courier New';
+        ctx.fillStyle = 'black';
+        ctx.fillText(`Score: ${score}`, 10, 20);
+    }
+
+    // Move player with mouse
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        player.x = mouseX - player.width / 2;
+    });
 });
