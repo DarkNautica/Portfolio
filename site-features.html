@@ -1,114 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Features</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <!-- AOS Library for Scroll Animations -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-</head>
-<body>
-    <header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="site-features.html">Site Features</a></li>
-        </ul>
-        <!-- Dark Mode Toggle -->
-        <div class="theme-switch-wrapper">
-    <label class="theme-switch">
-        <input type="checkbox" id="dark-mode-toggle">
-        <span class="slider round"></span>
-    </label>
-    <p>Dark Mode</p>
-</div>
+document.addEventListener('DOMContentLoaded', function() {
+    const fetchButton = document.getElementById('fetch-profile');
+    const usernameInput = document.getElementById('github-username');
+    const profileDisplay = document.getElementById('profile-display');
+    const avatarImg = document.getElementById('profile-avatar');
+    const nameEl = document.getElementById('profile-name');
+    const bioEl = document.getElementById('profile-bio');
+    const followersEl = document.getElementById('profile-followers');
+    const followingEl = document.getElementById('profile-following');
+    const reposEl = document.getElementById('profile-repos');
+    const repoListEl = document.getElementById('repo-list');
 
-    </nav>
-</header>
+    fetchButton.addEventListener('click', function() {
+        const username = usernameInput.value.trim();
+        if (username) {
+            fetchGitHubProfile(username);
+        } else {
+            alert("Please enter a valid GitHub username.");
+        }
+    });
 
+    async function fetchGitHubProfile(username) {
+        const url = `https://api.github.com/users/${username}`;
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                const data = await response.json();
+                displayProfile(data);
+                fetchRepos(username);
+            } else {
+                alert("User not found. Please try another username.");
+            }
+        } catch (error) {
+            console.error("Error fetching GitHub profile:", error);
+        }
+    }
 
-    <main class="main-container">
-        <!-- Interactive Code Playground -->
-        <section id="code-playground" data-aos="fade-up">
-            <h2>Interactive Code Playground</h2>
-            <div class="playground-container">
-                <div class="editor">
-                    <h3>HTML</h3>
-                    <textarea id="html-code" placeholder="Write HTML here..."></textarea>
-                    <h3>CSS</h3>
-                    <textarea id="css-code" placeholder="Write CSS here..."></textarea>
-                    <h3>JavaScript</h3>
-                    <textarea id="js-code" placeholder="Write JS here..."></textarea>
-                </div>
-                <div class="preview">
-                    <h3>Preview</h3>
-                    <iframe id="preview-window"></iframe>
-                </div>
-            </div>
-            <button class="interactive-button" onclick="runCode()">Run Code</button>
-        </section>
+    function displayProfile(data) {
+        profileDisplay.style.display = 'block';
+        avatarImg.src = data.avatar_url;
+        nameEl.textContent = data.name || "No Name Available";
+        bioEl.textContent = data.bio || "No Bio Available";
+        followersEl.textContent = data.followers;
+        followingEl.textContent = data.following;
+        reposEl.textContent = data.public_repos;
+    }
 
-        <!-- Additional Section for Scroll Animation -->
-        <section id="scroll-section" data-aos="fade-up">
-            <h2>Scroll to Animate</h2>
-            <p>This section fades in as you scroll down.</p>
-        </section>
+    async function fetchRepos(username) {
+        const url = `https://api.github.com/users/${username}/repos`;
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                const repos = await response.json();
+                displayRepos(repos);
+            } else {
+                console.error("Error fetching repos");
+            }
+        } catch (error) {
+            console.error("Error fetching GitHub repos:", error);
+        }
+    }
 
-        <section data-aos="zoom-in">
-            <h2>Zoom In Effect</h2>
-            <img src="assets/images/project1.png" alt="Zoom In Image" class="zoom-image">
-        </section>
-
-        <section data-aos="fade-left">
-            <p>This content fades in from the left as you scroll.</p>
-        </section>
-
-        <!-- Buttons with Click Effects -->
-        <button class="interactive-button">Click Me!</button>
-        <a href="#" class="interactive-link">Click Link</a>
-
-        <!-- Mini-Game Section -->
-<section id="mini-game" data-aos="fade-up">
-    <h2>Mini Game: Catch the Falling Objects!</h2>
-    <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
-    </div>
-    <button id="startButton">Start Game</button>
-</section>
-    </main>
-
-    <!-- AOS Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
-    <script src="scripts/scripts.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS (Animate On Scroll)
-            AOS.init({
-                duration: 1000, // Duration of the animation in milliseconds
-            });
-
-            // Ripple effect on click
-            const buttons = document.querySelectorAll('button, a');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    ripple.style.left = `${e.clientX - this.offsetLeft}px`;
-                    ripple.style.top = `${e.clientY - this.offsetTop}px`;
-                    this.appendChild(ripple);
-
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600); // Removes the ripple after the animation
-                });
-            });
+    function displayRepos(repos) {
+        repoListEl.innerHTML = ''; // Clear previous list
+        repos.forEach(repo => {
+            const repoItem = document.createElement('li');
+            repoItem.innerHTML = `<strong><a href="${repo.html_url}" target="_blank">${repo.name}</a></strong> - ${repo.description || 'No description'}`;
+            repoListEl.appendChild(repoItem);
         });
-    </script>
-</body>
-</html>
+    }
+});
