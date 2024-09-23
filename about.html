@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>About - My Portfolio</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="site-features.html">Site Features</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="site-features.html">Site Features</a></li>
+            </ul>
+            <!-- Dark Mode Toggle -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <p>Dark Mode</p>
+            </div>
+        </nav>
+    </header>
 
-    <div class="main-container">
+    <main class="main-container">
         <section id="about">
-            <h1>About Me</h1>
-            <p>This is the About Me section where you can talk about yourself, your background, and your interests.</p>
+            <h2>About Me</h2>
+            <p class="typewriter" id="about-text"></p>
         </section>
-    </div>
+    </main>
+
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
