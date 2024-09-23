@@ -3,29 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interactive Portfolio</title>
+    <title>Home - My Portfolio</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Particle Background -->
-    <div class="particles"></div>
-
-    <!-- Main Content Container -->
-    <div class="main-container">
-        <header>
-            <!-- Navigation Bar -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="site-features.html">Site Features</a></li>
-                </ul>
-            </nav>
-
-            <h1>My Interactive Portfolio</h1>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="site-features.html">Site Features</a></li>
+            </ul>
+            <!-- Dark Mode Toggle -->
             <div class="theme-switch-wrapper">
                 <label class="theme-switch">
                     <input type="checkbox" id="dark-mode-toggle">
@@ -33,79 +24,16 @@
                 </label>
                 <p>Dark Mode</p>
             </div>
-        </header>
+        </nav>
+    </header>
 
-        <!-- Parallax Section -->
-        <section class="parallax-bg">
-            <div class="container">
-                <h2>Welcome to My Portfolio</h2>
-                <p>Scroll to explore the cool interactive features I've built!</p>
-            </div>
+    <main class="main-container">
+        <section id="welcome">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Scroll through the site to see more about me, my projects, and the cool features I’ve built.</p>
         </section>
+    </main>
 
-        <!-- About Me Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p class="typewriter" id="about-text"></p>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Coding Proficiency</h2>
-            <div class="coding-languages">
-                <div class="language">
-                    <h3><span class="code-csharp">C#</span></h3>
-                    <div class="proficiency">
-                        <div class="progress-bar intermediate"></div>
-                    </div>
-                    <p>Proficiency: Intermediate</p>
-                </div>
-                <div class="language">
-                    <h3><span class="code-html">HTML</span></h3>
-                    <div class="proficiency">
-                        <div class="progress-bar beginner"></div>
-                    </div>
-                    <p>Proficiency: Beginner</p>
-                </div>
-                <div class="language">
-                    <h3><span class="code-css">CSS</span></h3>
-                    <div class="proficiency">
-                        <div class="progress-bar beginner"></div>
-                    </div>
-                    <p>Proficiency: Beginner</p>
-                </div>
-                <div class="language">
-                    <h3><span class="code-js">JavaScript</span></h3>
-                    <div class="proficiency">
-                        <div class="progress-bar beginner"></div>
-                    </div>
-                    <p>Proficiency: Beginner</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- GitHub Projects Section -->
-        <section id="projects">
-            <h2>My Projects (via GitHub API)</h2>
-            <div id="github-projects"></div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </div>
-
-    <!-- JS Scripts -->
     <script src="scripts/scripts.js"></script>
 </body>
 </html>
