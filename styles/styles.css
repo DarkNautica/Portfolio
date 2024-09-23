@@ -215,6 +215,17 @@ iframe {
     100% { transform: scale(1.1); }
 }
 
+button, a {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Makes the button "pop" */
+}
+
 button {
     padding: 10px 20px;
     background-color: #007AFF;
@@ -225,13 +236,42 @@ button {
     border-radius: 8px;
 }
 
-button:hover {
-    background-color: #0056b3;
-    animation: scaleUp 0.3s forwards;
+/* Ripple Click Effect */
+.ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Hover Effects */
+img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Apply animations to specific sections */
-#code-playground {
+#code-playground, section {
     animation: fadeIn 1s ease-in-out;
 }
 
