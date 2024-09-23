@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Features</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- AOS Library for Scroll Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
     <header>
@@ -21,7 +23,7 @@
 
     <main class="main-container">
         <!-- Interactive Code Playground -->
-        <section id="code-playground">
+        <section id="code-playground" data-aos="fade-up">
             <h2>Interactive Code Playground</h2>
             <div class="playground-container">
                 <div class="editor">
@@ -37,10 +39,57 @@
                     <iframe id="preview-window"></iframe>
                 </div>
             </div>
-            <button onclick="runCode()">Run Code</button>
+            <button class="interactive-button" onclick="runCode()">Run Code</button>
         </section>
+
+        <!-- Additional Section for Scroll Animation -->
+        <section id="scroll-section" data-aos="fade-up">
+            <h2>Scroll to Animate</h2>
+            <p>This section fades in as you scroll down.</p>
+        </section>
+
+        <section data-aos="zoom-in">
+            <h2>Zoom In Effect</h2>
+            <img src="assets/images/project1.png" alt="Zoom In Image" class="zoom-image">
+        </section>
+
+        <section data-aos="fade-left">
+            <p>This content fades in from the left as you scroll.</p>
+        </section>
+
+        <!-- Buttons with Click Effects -->
+        <button class="interactive-button">Click Me!</button>
+        <a href="#" class="interactive-link">Click Link</a>
     </main>
 
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
     <script src="scripts/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 1000, // Duration of the animation in milliseconds
+            });
+
+            // Ripple effect on click
+            const buttons = document.querySelectorAll('button, a');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    ripple.style.left = `${e.clientX - this.offsetLeft}px`;
+                    ripple.style.top = `${e.clientY - this.offsetTop}px`;
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600); // Removes the ripple after the animation
+                });
+            });
+        });
+    </script>
 </body>
 </html>
