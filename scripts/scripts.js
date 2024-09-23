@@ -122,4 +122,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Make runCode function accessible globally
     window.runCode = runCode;
+
+    // Ripple effect on click
+    const buttons = document.querySelectorAll('button, a');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            ripple.style.left = `${e.clientX - this.offsetLeft}px`;
+            ripple.style.top = `${e.clientY - this.offsetTop}px`;
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600); // Removes the ripple after the animation
+        });
+    });
+
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000, // Duration of the animation in milliseconds
+    });
 });
