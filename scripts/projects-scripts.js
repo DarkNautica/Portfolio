@@ -26,10 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const projectCard = document.createElement('div');
                 projectCard.classList.add('project-card');
 
+                // Add a placeholder image to the left of the project card
                 projectCard.innerHTML = `
-                    <h3>${repo.name}</h3>
-                    <p>${repo.description || 'No description available.'}</p>
-                    <a href="${repo.html_url}" target="_blank">View Project</a>
+                    <div class="project-content">
+                        <img src="https://via.placeholder.com/150" alt="Project Image" class="project-image" />
+                        <div class="project-info">
+                            <h3>${repo.name}</h3>
+                            <p>${repo.description || 'No description available.'}</p>
+                            <a href="${repo.html_url}" target="_blank">View Project</a>
+                        </div>
+                    </div>
                 `;
 
                 githubProjectsContainer.appendChild(projectCard);
