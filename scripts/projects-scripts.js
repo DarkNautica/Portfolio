@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const githubProjectsContainer = document.getElementById('github-projects');
 
     async function fetchGitHubRepos() {
-        const username = 'YOUR_GITHUB_USERNAME'; // Replace with your GitHub username
+        const username = 'DarkNautica'; // Replace with your GitHub username
         const apiUrl = `https://api.github.com/users/${username}/repos`;
         
         try {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayProjects(repos) {
         repos.forEach(repo => {
-            if (repo.name === `${repo.owner.login}.github.io` || repo.name === "YOUR_GITHUB_PAGES_REPO_NAME") {
+            if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject") {
                 const projectCard = document.createElement('div');
                 projectCard.classList.add('project-card');
 
