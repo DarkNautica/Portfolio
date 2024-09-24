@@ -335,6 +335,38 @@ canvas {
     transform: translate(-50%, -50%);
 }
 
+.project-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.project-card a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #0056b3;
+}
+
+
 @keyframes ripple-animation {
     from {
         transform: scale(0);
