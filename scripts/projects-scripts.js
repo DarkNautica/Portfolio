@@ -20,19 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function displayProjects(repos) {
+     
+function displayProjects(repos) {
     repos.forEach(repo => {
-        if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject" || repo.name === "NetflixClone") {
+        if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject" || repo.name === "Netflix-Remake") {
             const projectCard = document.createElement('div');
             projectCard.classList.add('project-card');
 
-            // Assuming your GitHub Pages URL is 'https://username.github.io/repo-name'
+            // Manually assign image URLs based on project name
+            let projectImageUrl = 'https://via.placeholder.com/150'; // Default placeholder image
+
+            if (repo.name === "FormProject") {
+                projectImageUrl = "FormProject-Icon.png"; // Replace with actual image URL
+            } else if (repo.name === "Netflix-Remake") {
+                projectImageUrl = "Netflix-Remake-Icon.png"; // Replace with actual image URL
+            }
+
             const liveSiteUrl = `https://${repo.owner.login}.github.io/${repo.name}`;
 
-            // Add both "View Project" and "Visit Site" buttons
+            // Add project image and buttons
             projectCard.innerHTML = `
                 <div class="project-content">
-                    <img src="https://via.placeholder.com/150" alt="Project Image" class="project-image" />
+                    <img src="${projectImageUrl}" alt="Project Image" class="project-image" />
                     <div class="project-info">
                         <h3>${repo.name}</h3>
                         <p>${repo.description || 'No description available.'}</p>
@@ -46,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 }
+
 
 
     fetchGitHubRepos();
