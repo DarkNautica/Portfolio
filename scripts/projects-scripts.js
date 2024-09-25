@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayProjects(repos) {
         repos.forEach(repo => {
-            if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject") {
+            // Add another condition for the additional project (e.g., "NetflixClone" project)
+            if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject" || repo.name === "NetflixClone") {
                 const projectCard = document.createElement('div');
                 projectCard.classList.add('project-card');
 
