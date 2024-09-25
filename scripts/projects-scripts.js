@@ -31,9 +31,9 @@ function displayProjects(repos) {
             let projectImageUrl = 'https://via.placeholder.com/150'; // Default placeholder image
 
             if (repo.name === "FormProject") {
-                projectImageUrl = "FormProject-Icon.png"; // Replace with actual image URL
+                projectImageUrl = "assets/images/FormProject-Icon.png"; // Replace with actual image URL
             } else if (repo.name === "Netflix-Remake") {
-                projectImageUrl = "Netflix-Remake-Icon.png"; // Replace with actual image URL
+                projectImageUrl = "assets/images/Netflix-Remake-Icon.png"; // Replace with actual image URL
             }
 
             const liveSiteUrl = `https://${repo.owner.login}.github.io/${repo.name}`;
