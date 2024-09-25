@@ -363,11 +363,13 @@ canvas {
 
 .project-info h3 {
     margin-top: 0;
+    color: #333; /* Darker text color for better visibility */
 }
 
 .project-info p {
     font-size: 1rem;
     margin-bottom: 10px;
+    color: #333; /* Darker text color for better visibility */
 }
 
 .project-info a {
@@ -397,6 +399,13 @@ canvas {
 .project-button:hover {
     background-color: #0056b3;
 }
+
+/* Dark mode adjustments */
+body[data-theme='dark'] .project-info h3,
+body[data-theme='dark'] .project-info p {
+    color: #e0e0e0; /* Light text for dark mode */
+}
+
 
 
 @keyframes ripple-animation {
