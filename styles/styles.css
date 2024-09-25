@@ -384,6 +384,20 @@ canvas {
     background-color: #0056b3;
 }
 
+.project-button {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.project-button:hover {
+    background-color: #0056b3;
+}
+
 
 @keyframes ripple-animation {
     from {
