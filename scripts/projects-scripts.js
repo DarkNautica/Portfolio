@@ -21,28 +21,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayProjects(repos) {
-        repos.forEach(repo => {
-            // Add another condition for the additional project (e.g., "NetflixClone" project)
-            if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject" || repo.name === "Netflix-Remake") {
-                const projectCard = document.createElement('div');
-                projectCard.classList.add('project-card');
+    repos.forEach(repo => {
+        if (repo.name === `${repo.owner.login}.github.io` || repo.name === "FormProject" || repo.name === "NetflixClone") {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('project-card');
 
-                // Add a placeholder image to the left of the project card
-                projectCard.innerHTML = `
-                    <div class="project-content">
-                        <img src="https://via.placeholder.com/150" alt="Project Image" class="project-image" />
-                        <div class="project-info">
-                            <h3>${repo.name}</h3>
-                            <p>${repo.description || 'No description available.'}</p>
-                            <a href="${repo.html_url}" target="_blank">View Project</a>
-                        </div>
+            // Assuming your GitHub Pages URL is 'https://username.github.io/repo-name'
+            const liveSiteUrl = `https://${repo.owner.login}.github.io/${repo.name}`;
+
+            // Add both "View Project" and "Visit Site" buttons
+            projectCard.innerHTML = `
+                <div class="project-content">
+                    <img src="https://via.placeholder.com/150" alt="Project Image" class="project-image" />
+                    <div class="project-info">
+                        <h3>${repo.name}</h3>
+                        <p>${repo.description || 'No description available.'}</p>
+                        <a href="${repo.html_url}" target="_blank" class="project-button">View Project</a>
+                        <a href="${liveSiteUrl}" target="_blank" class="project-button">Visit Site</a>
                     </div>
-                `;
+                </div>
+            `;
 
-                githubProjectsContainer.appendChild(projectCard);
-            }
-        });
-    }
+            githubProjectsContainer.appendChild(projectCard);
+        }
+    });
+}
+
 
     fetchGitHubRepos();
 });
